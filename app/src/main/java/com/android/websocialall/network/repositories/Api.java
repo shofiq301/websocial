@@ -2,12 +2,14 @@ package com.android.websocialall.network.repositories;
 
 
 
+import com.android.websocialall.ui.login.models.LoginRespons;
 import com.android.websocialall.ui.signup.models.SignupResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface Api {
 
@@ -15,6 +17,14 @@ public interface Api {
     @POST(Constant.SIGNUP)
     Call<SignupResponse> getSignupRes(@Field("email") String email,
                                       @Field("pass") String pass);
+
+    // Doctor login
+    @POST(Constant.SIGNIN)
+    Call<LoginRespons> userlogin(
+            @Query("email") String email,
+            @Query("password") String password);
+
+
 //    @FormUrlEncoded
 //    @POST(Common.ACCOUNT)
 //    Call<SignupResponse> signupUser(

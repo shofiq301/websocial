@@ -17,6 +17,7 @@ import com.android.websocialall.R;
 import com.android.websocialall.databinding.ActivitySignUpBinding;
 import com.android.websocialall.helper.ShowMessage;
 import com.android.websocialall.ui.login.LoginActivity;
+import com.android.websocialall.ui.profile.ProfileActivty;
 import com.android.websocialall.ui.signup.models.SignupResponse;
 import com.android.websocialall.ui.signup.view.SignupView;
 import com.android.websocialall.ui.verify.PhoneVerifyActivity;
@@ -123,7 +124,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void setDataToView(SignupResponse signupResponse) {
         if (signupResponse.getStatus().intValue()==200){
             new ShowMessage(SignUpActivity.this).showTost(signupResponse.getMsg());
-            startActivity(new Intent(SignUpActivity.this, PhoneVerifyActivity.class));
+            startActivity(new Intent(SignUpActivity.this, ProfileActivty.class));
             finish();
         }
         else {
